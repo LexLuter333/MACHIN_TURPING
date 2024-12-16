@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 #define SUCCESS_CODE  1
-#define FAIL_CODE  -111
+#define FAIL_CODE  111
 struct Node {
     struct Node* next;
     char current;
@@ -21,7 +21,7 @@ struct TableElem {
     short direction;
 };
 
-struct TableElem TableTransition[MAX_ASCII][MAX_STATES];
+//struct TableElem TableTransition[MAX_ASCII][MAX_STATES];
 
 struct ReadResult {
     struct TableElem TableTransition[MAX_ASCII][MAX_STATES];
@@ -36,10 +36,10 @@ void InitializeList(struct LinkedList* list) {
 int AppendNode(struct LinkedList* list, char symbol) {
     void *current_brk = sbrk(0);
 
-    if (brk(current_brk + sizeof(*Node)) == -1) {
+    if (brk(current_brk + sizeof(struct Node)) == -1) {
         return FAIL_CODE;
     }
-    Node *newNode = (Node*)current_brk;
+    struct Node *newNode = (struct Node*)current_brk;
 
     if (list->tail == NULL) {
         newNode->prev = NULL;
