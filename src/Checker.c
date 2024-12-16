@@ -3,7 +3,7 @@
 
 void Checker(int errorCode) {
     char* message = "ERROR CODE: ";
-    write(1, message, sizeof(message)-1);
+    write(1, message, 12);
 
     char buffer[12];
     int length = 0;
