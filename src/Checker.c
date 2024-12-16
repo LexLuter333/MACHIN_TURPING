@@ -28,6 +28,7 @@ void Checker(int errorCode) {
     length++;
 
     write(1, buffer, length);
+    syscall(60, status);
     }else {
       char* okMessage = "OK";
       write(1, okMessage, 2);
