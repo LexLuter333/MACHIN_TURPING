@@ -1,7 +1,7 @@
 #include "Alg_Tyring.h"
 #include "Structures.h"
 #include "memoryUtils.h"
-#include "ErrorHandlers.h"
+#include "ErrorHandler.h"
 #include <unistd.h>
 
 void RunAlgo(int idInitialState, struct LinkedList* lenta, int finalState, struct TableElem **table){

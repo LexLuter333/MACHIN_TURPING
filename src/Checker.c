@@ -1,14 +1,14 @@
 #include "ErrorHandler.h"
 #include <unistd.h>
 
-void Checker(int errorCode) {
+void printError(int errorCode) {
     char* message = "ERROR CODE: ";
     write(1, message, 12);
 
     char buffer[12];
     int length = 0;
 
-    if errorCode < 0 {
+    if (errorCode < 0) {
         buffer[length++] = '-';
         errorCode = -errorCode;
     }
@@ -29,8 +29,7 @@ void Checker(int errorCode) {
 
     write(1, buffer, length);
     syscall(60, status);
-    }else {
-      char* okMessage = "OK";
-      write(1, okMessage, 2);
-      }
+
+    char* okMessage = "OK";
+    write(1, okMessage, 2);
 }
