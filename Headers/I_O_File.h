@@ -5,4 +5,4 @@ struct LinkedList ReadTape();
 
 struct ReadResult ReadFile(char* filePath);
 
-void OutputList(struct LinkedList tape);
+void OutputList(struct LinkedList *tape);

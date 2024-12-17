@@ -1,5 +1,6 @@
 #define MAX_ASCII  95
 #define MAX_STATES  256
+#define MAX_LEN 100
 #include <unistd.h>
 
 #define SUCCESS_CODE  1
