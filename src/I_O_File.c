@@ -9,7 +9,7 @@ struct LinkedList ReadTape() {
     void *current_brk = sbrk(0);
 
     if (brk(current_brk + sizeof(struct Node)) == -1) {
-        printError(); //TODO
+        printError(-1); //TODO
     }
     struct LinkedList *list = (struct LinkedList *) current_brk;
 
@@ -32,7 +32,7 @@ struct ReadResult ReadFile(char *filePath) {
 
     int flow = open(filePath,O_RDONLY);
     if (flow == -1) {
-        printError(); //TODO
+        printError(-1); //TODO
     }
 
     ssize_t bytes_read;
@@ -41,7 +41,7 @@ struct ReadResult ReadFile(char *filePath) {
     int cntStates = 0;
     while ((bytes_read = read(flow, curr_symb, 1)) > 0 && curr_symb != '\n') {
         cntStates = cntStates * 10 + (curr_symb - '0');
-    }
+    } // возможно записывает только однозначнок кол-во состояний
     result.countState = cntStates;
 
     char statesArray[MAX_STATES][MAX_ASCII];
@@ -96,7 +96,7 @@ struct ReadResult ReadFile(char *filePath) {
                 break;
             }
         } if (idCurrState == -1) {
-          printError(); // TODO
+          printError(-1); // TODO
         }
 
 
@@ -131,7 +131,7 @@ struct ReadResult ReadFile(char *filePath) {
                 break;
             }
         } if (idNewState == -1) {
-          printError(); // TODO
+          printError(-1); // TODO
         }
 
         while ((bytes_read = read(flow, curr_symb, 1)) > 0 && curr_symb != ' ') {

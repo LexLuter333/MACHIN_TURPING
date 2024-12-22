@@ -5,6 +5,6 @@
 //TODO
 
 
-void printError(int errorCode);
 
 #endif
+void printError(int errorCode);

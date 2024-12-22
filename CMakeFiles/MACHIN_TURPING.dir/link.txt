@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/MACHIN_TURPING.dir/src/algorithm.c.o CMakeFiles/MACHIN_TURPING.dir/src/Checker.c.o CMakeFiles/MACHIN_TURPING.dir/src/I_O_File.c.o CMakeFiles/MACHIN_TURPING.dir/src/main.c.o -o MACHIN_TURPING 

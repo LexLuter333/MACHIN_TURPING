@@ -1,9 +1,7 @@
 #include "../Headers/Alg_Tyring.h"
-#include "../Headers/memoryUtils.h"
 #include "../Headers/ErrorHandler.h"
-#include <unistd.h>
 
-void RunAlgo(int idInitialState, struct LinkedList* lenta, int finalState, struct TableElem **table){
+struct LinkedList RunAlgo(int idInitialState, struct LinkedList* lenta, int finalState, struct TableElem **table){
 
     struct Node* currentCell = lenta->head;
     int step = 0;
@@ -15,7 +13,7 @@ void RunAlgo(int idInitialState, struct LinkedList* lenta, int finalState, struc
         step++;
 
         if (step >= 100000){
-            printError(); // TODO
+            printError(-1); // TODO
         }
 
         struct TableElem elem = GetElem(currentCell->current, currentState, table);
@@ -24,7 +22,7 @@ void RunAlgo(int idInitialState, struct LinkedList* lenta, int finalState, struc
 
         if (elem.direction == '>' ) {
             if (currentCell->next == NULL) {
-              printError(); // TODO
+              printError(-1); // TODO
             }
             currentCell = currentCell->next;
         }
@@ -32,13 +30,15 @@ void RunAlgo(int idInitialState, struct LinkedList* lenta, int finalState, struc
 
         if (elem.direction == '<') {
             if (currentCell->prev == NULL) {
-                printError(); // TODO
+                printError(-1); // TODO
               }
             currentCell = currentCell->prev;
         }
-        int currentState = elem.idState;
+        currentState = elem.idState;
     
     }
+
+    return *lenta;
 
 }
 

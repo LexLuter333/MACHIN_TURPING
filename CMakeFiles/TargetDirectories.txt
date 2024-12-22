@@ -1,3 +1,0 @@
-/mnt/c/Users/borsh/Desktop/MACHIN_TURPING/CMakeFiles/MACHIN_TURPING.dir
-/mnt/c/Users/borsh/Desktop/MACHIN_TURPING/CMakeFiles/edit_cache.dir
-/mnt/c/Users/borsh/Desktop/MACHIN_TURPING/CMakeFiles/rebuild_cache.dir
