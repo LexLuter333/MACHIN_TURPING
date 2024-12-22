@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include "../Headers/I_O_File.h"
-#include "ErrorHandler.h"
+#include "../Headers/ErrorHandler.h"
 
 struct LinkedList ReadTape() {
     char ch;

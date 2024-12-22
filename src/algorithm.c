@@ -1,7 +1,6 @@
-#include "Alg_Tyring.h"
-#include "Structures.h"
-#include "memoryUtils.h"
-#include "ErrorHandler.h"
+#include "../Headers/Alg_Tyring.h"
+#include "../Headers/memoryUtils.h"
+#include "../Headers/ErrorHandler.h"
 #include <unistd.h>
 
 void RunAlgo(int idInitialState, struct LinkedList* lenta, int finalState, struct TableElem **table){
@@ -24,7 +23,7 @@ void RunAlgo(int idInitialState, struct LinkedList* lenta, int finalState, struc
         currentCell->current = elem.newSymbol;
 
         if (elem.direction == '>' ) {
-            if (currCell->next == NULL) {
+            if (currentCell->next == NULL) {
               printError(); // TODO
             }
             currentCell = currentCell->next;
@@ -32,7 +31,7 @@ void RunAlgo(int idInitialState, struct LinkedList* lenta, int finalState, struc
 
 
         if (elem.direction == '<') {
-            if (currCell->prev == NULL) {
+            if (currentCell->prev == NULL) {
                 printError(); // TODO
               }
             currentCell = currentCell->prev;

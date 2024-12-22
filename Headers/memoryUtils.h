@@ -12,7 +12,7 @@ typedef struct Block {
 void* base = NULL;
 
 
-void *appendMem(... size){};
+void *appendMem(int size){};
 
 
 #endif

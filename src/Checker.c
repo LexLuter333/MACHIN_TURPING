@@ -1,5 +1,6 @@
-#include "ErrorHandler.h"
 #include <unistd.h>
+#include "../Headers/ErrorHandler.h"
+
 
 void printError(int errorCode) {
     char* message = "ERROR CODE: ";
@@ -28,7 +29,7 @@ void printError(int errorCode) {
     length++;
 
     write(1, buffer, length);
-    syscall(60, status);
+    syscall(60, 1);
 
     char* okMessage = "OK";
     write(1, okMessage, 2);

@@ -1,4 +1,4 @@
-#include <Structures.h>
+#include "Structures.h"
 
 
 struct TableElem GetElem(char currSymbol, int idState, struct TableElem **table ){

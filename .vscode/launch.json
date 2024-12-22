@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/rgthardkor/WebstormProjects/MACHIN_TURPING",
+      "program": "/Users/rgthardkor/WebstormProjects/MACHIN_TURPING/build/Debug/outDebug"
+    }
+  ]
+}
