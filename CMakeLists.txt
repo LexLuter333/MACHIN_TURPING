@@ -12,9 +12,12 @@ add_executable(testMT
         Headers/I_O_File.h
         Headers/memoryUtils.h
         Headers/Structures.h
+        Headers/memoryUtils.h
         src/algTyr.c
         src/utils.c
         src/algorithm.c
         src/Checker.c
         src/I_O_File.c
-        src/main.c)
+        src/main.c
+        src/memoryUtils.c
+)

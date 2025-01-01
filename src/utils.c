@@ -1,5 +1,5 @@
 #include "../Headers/Structures.h"
-
+#include "../Headers/memoryUtils.h"
 
 void InitializeList(struct LinkedList* list) {
   list->tail = NULL;
@@ -7,12 +7,8 @@ void InitializeList(struct LinkedList* list) {
 };
 
 int AppendNode(struct LinkedList* list, char symbol) {
-    void *current_brk = sbrk(0);
 
-    if (brk(current_brk + sizeof(struct Node)) == -1) {
-        return FAIL_CODE;
-    }
-    struct Node *newNode = (struct Node*)current_brk;
+    struct Node *newNode = (struct Node*)my_malloc(sizeof(struct Node));
 
     if (list->tail == NULL) {
         newNode->prev = NULL;

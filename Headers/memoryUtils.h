@@ -1,18 +1,13 @@
-#ifndef MEMORYUTILS_H
-#define MEMORYUTILS_H
 #include <unistd.h>
 
 typedef struct Block {
-    unsigned int size;
-    int free;
-    struct Block *next;
+    size_t size;           // Размер выделенного блока памяти
+    int free;              // Флаг: свободен ли блок (1 = да, 0 = нет)
+    struct Block* next;    // Указатель на следующий блок
 } Block;
 
 #define BLOCK_SIZE sizeof(Block)
-void* base = NULL;
 
+void* my_malloc(size_t size);
 
-void *appendMem(int size);
-
-
-#endif
+void my_free(void* ptr);

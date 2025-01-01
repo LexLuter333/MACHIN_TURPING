@@ -3,7 +3,7 @@
 
 
 void printError(int errorCode) {
-    char* message = "ERROR CODE: ";
+    char* message = "\nERROR CODE: ";
     write(1, message, 12);
 
     char buffer[12];
