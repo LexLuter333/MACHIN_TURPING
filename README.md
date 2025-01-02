@@ -1,2 +1,13 @@
 # MACHIN_TURPING
-КАК НАСРАТЬ
+***
+Как пользоваться
+
+```
+cmake CMakeLists.txt
+```
+```
+make
+```
+```
+./testMT input.txt
+```

@@ -35,3 +35,5 @@ void InitializeList(struct LinkedList* list);
 
 int AppendNode(struct LinkedList* list, char symbol);
 
+char* int_to_string(int number);
+int chars_to_int(char* chars);

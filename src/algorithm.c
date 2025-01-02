@@ -1,13 +1,11 @@
 #include "../Headers/Alg_Tyring.h"
 #include "../Headers/ErrorHandler.h"
 
-struct LinkedList RunAlgo(int idInitialState, struct LinkedList* lenta, int finalState, struct TableElem **table){
+struct LinkedList RunAlgo(int idInitialState, struct LinkedList* lenta, int finalState, struct TableElem table[MAX_ASCII][MAX_STATES]){
 
     struct Node* currentCell = lenta->head;
     int step = 0;
     int currentState = idInitialState;
-    
-
     
     while(currentState != finalState){
         step++;

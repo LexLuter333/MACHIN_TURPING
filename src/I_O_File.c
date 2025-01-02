@@ -31,6 +31,7 @@ struct ReadResult ReadFile(char *filePath) {
     int flow = open(filePath,O_RDONLY);
     if (flow == -1) {
         printError(-1); //TODO
+        printf("Error opening file\n");
     }
 
     ssize_t bytes_read;
@@ -39,7 +40,7 @@ struct ReadResult ReadFile(char *filePath) {
     int cntStates = 0;
     while ((bytes_read = read(flow, &curr_symb, 1)) > 0 && curr_symb != '\n') {
         cntStates = cntStates * 10 + (curr_symb - '0');
-    } // возможно записывает только однозначнок кол-во состояний
+    }
     result->countState = cntStates;
 
     char statesArray[MAX_STATES][MAX_ASCII];
@@ -56,8 +57,7 @@ struct ReadResult ReadFile(char *filePath) {
             symbInSts++;
         }
     }
-
-
+    sts++;
     int cntTransitions = 0;
     while ((bytes_read = read(flow, &curr_symb, 1)) > 0 && curr_symb != '\n') {
         cntTransitions = cntTransitions * 10 + (curr_symb - '0');
@@ -83,9 +83,11 @@ struct ReadResult ReadFile(char *filePath) {
         currState[statePointer] = '\0';
         statePointer++;
 
+        // записываем позицию текущего состояния
         for (int j = 0; j < cntStates; j++) {
+          // посимвольное чтение
             for (int k = 0; k < statePointer; k++) {
-                if (statesArray[j][k] != currState[k])break;
+                if (statesArray[j][k] != currState[k]) break;
                 if (statesArray[j][k] == currState[k] && currState[k] == '\0') {
                     idCurrState = j;
                     break;
@@ -94,8 +96,11 @@ struct ReadResult ReadFile(char *filePath) {
             if (idCurrState != -1) {
                 break;
             }
-        } if (idCurrState == -1) {
+        }
+
+        if (idCurrState == -1) {
           printError(-1); // TODO
+          printf("\n100: idCurrState = -1\n");
         }
 
 
@@ -104,6 +109,7 @@ struct ReadResult ReadFile(char *filePath) {
             ascii = curr_symb;
         }
 
+        // TODO к чему это?)
         while ((bytes_read = read(flow, &curr_symb, 1)) > 0 && curr_symb != '(') {
         };
 
@@ -120,7 +126,7 @@ struct ReadResult ReadFile(char *filePath) {
 
         for (int j = 0; j < cntStates; j++) {
             for (int k = 0; k < statePointer; k++) {
-                if (statesArray[j][k] != newState[k])break;
+                if (statesArray[j][k] != newState[k]) break;
                 if (statesArray[j][k] == newState[k] && newState[k] == '\0') {
                     idNewState = j;
                     break;
@@ -131,6 +137,7 @@ struct ReadResult ReadFile(char *filePath) {
             }
         } if (idNewState == -1) {
           printError(-1); // TODO
+          printf("\n136: idCurrState = -1\n");
         }
 
         while ((bytes_read = read(flow, &curr_symb, 1)) > 0 && curr_symb != ' ') {

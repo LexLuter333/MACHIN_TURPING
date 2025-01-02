@@ -25,3 +25,30 @@ int AppendNode(struct LinkedList* list, char symbol) {
 
     return SUCCESS_CODE;
 }
+
+char* int_to_string(int number){
+  char buffer[20];
+  int length = 0;
+  if (number < 0){
+      buffer[length++] = '-';
+      number = number * -1;
+  }
+  int tmp = number;
+  do{
+    buffer[length++] = '0' + tmp % 10 ;
+    tmp /= 10;
+  } while(tmp > 0);
+
+  return buffer;
+}
+
+int chars_to_int(char* chars){
+    int i = 0;
+    int result = 0;
+    while (chars[i]) {
+      result += chars[i] - '0';
+      result *= 10;
+    }
+    if (chars[0] == '-') return result * -1;
+    return result;
+}
